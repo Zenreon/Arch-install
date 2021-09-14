@@ -57,10 +57,10 @@ echo -e "\e[1;36mPreparing pacstrap, installing base packages.\e[0m"
 echo -e "\e[1;36mWould you like to install AMD CPU microcode? [y/n]\e[0m"
 read microcodeanswer
 if [ "$microcodeanswer" != "${microcodeanswer#[Nn]}" ] ;then
-    echo -e "\e[1;36mMicrocode will not be installed. Continuing...\e[0m"
+    echo -e "\e[1;36mPackages to be installed: base linux linux-firmware emacs vim networkmanager grub efibootmgr nano sudo \e[0m"
     pacstrap /mnt base linux linux-firmware emacs vim networkmanager grub efibootmgr nano sudo
 else 
-    echo -e "\e[1;36mMicrocode will be installed. Continuing...\e[0m"
+    echo -e "\e[1;36mPackages to be installed: base linux linux-firmware emacs vim networkmanager amd-ucode grub efibootmgr nano sudo\e[0m"
     pacstrap /mnt base linux linux-firmware emacs vim networkmanager amd-ucode grub efibootmgr nano sudo 
 fi 
 genfstab -U /mnt >> /mnt/etc/fstab
