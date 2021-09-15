@@ -72,6 +72,7 @@ echo $varhostname >> /etc/hostname
 echo -e "\e[1;36mPlease enter a root password\e[0m"
 passwd
 arch-chroot /mnt <<EOF
+passwd
 mkdir /boot/efi
 mount $vardrive"2" /boot/efi
 grub-install --target=x86_64-efi /boot/efi
