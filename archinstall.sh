@@ -70,7 +70,6 @@ echo -e "\e[1;36mPlease enter a hostname\e[0m"
 read varhostname
 echo $varhostname >> /etc/hostname
 echo -e "\e[1;36mPlease enter a root password\e[0m"
-passwd
 arch-chroot /mnt <<EOF
 passwd
 mkdir /boot/efi
