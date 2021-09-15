@@ -16,4 +16,5 @@ Copy archinstall.sh to a live system and execute through bash.
 
 # Packages installed to /mnt
 base linux linux-firmware emacs vim networkmanager grub efibootmgr nano sudo 
+
 Optional: amd-ucode
