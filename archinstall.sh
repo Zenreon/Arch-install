@@ -68,13 +68,17 @@ genfstab -U /mnt >> /mnt/etc/fstab
 ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime
 echo -e "\e[1;36mPlease enter a hostname\e[0m"
 read varhostname
+touch /etc/hostname
 echo $varhostname >> /etc/hostname
-echo -e "\e[1;36mPlease enter a root password\e[0m"
+echo -e "\e[1;36mPlease enter a root password (case sensitive)\e[0m"
+read varpasswd
 arch-chroot /mnt <<EOF
-passwd
 mkdir /boot/efi
 mount $vardrive"2" /boot/efi
 grub-install --target=x86_64-efi /boot/efi
 grub-mkconfig -o /boot/grub/grub.cfg
+passwd
+$varpasswd
+$varpasswd
 EOF
-echo -e "\e[1;36mInstallation successful. Reboot, and login as root.\e[0m"
+echo -e "\e[1;36mInstallation successful. Reboot, and login as root. \e[0m"
